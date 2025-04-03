@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punch Press Inspection</title>
+    <link rel="stylesheet" href="press-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-hammer"></i> PUNCH PRESS INSPECTION</h1>
+        <div class="user-controls">
+            <div id="data-source-status">
+                <i class="fas fa-circle" style="color: #ccc;"></i> <span id="source-type">No Data Source</span>
+            </div>
+            <div class="action-buttons" id="bulk-actions">
+                <button id="form-selected" class="btn btn-form" title="Open form for selected" style="display: none;">
+                    <i class="fas fa-file-alt"></i> Form
+                </button>
+                <button id="export-pdf" class="btn btn-pdf" title="Export selected to PDF">
+                    <i class="fas fa-file-pdf"></i> Export
+                </button>
+                <button id="notify-selected" class="btn btn-notify" title="Notify about selected (20 min)">
+                    <i class="fas fa-bell"></i> Notify
+                </button>
+                <button id="stop-notify" class="btn btn-stop" title="Stop notifications">
+                    <i class="fas fa-bell-slash"></i> Stop
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Data Source Modal -->
+        <div id="data-source-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close-data-source-modal">&times;</span>
+                <h2><i class="fas fa-database"></i> Connect Data Source</h2>
+                
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="google-sheets-tab">Google Sheets</button>
+                </div>
+                
+                <div id="google-sheets-tab" class="tab-content active">
+                    <div class="form-group">
+                        <label>Google Sheet URL</label>
+                        <input type="text" id="sheet-url" placeholder="https://docs.google.com/spreadsheets/d/...">
+                        <p class="hint">(Must be shared publicly)</p>
+                    </div>
+                    <button id="connect-sheet" class="btn btn-primary">
+                        <i class="fas fa-link"></i> Connect Sheet
+                    </button>
+                </div>
+                
+                <div class="requirements">
+                    <h4>Data Format Requirements:</h4>
+                    <ol>
+                        <li>Status (approved/rejected/etc)</li>
+                        <li>Press Number (1-25, will show as title)</li>
+                        <li>Part Name (will show in details)</li>
+                        <li>Link (for Form button)</li>
+                        <li>Skip Column (ignored)</li>
+                        <li>Main Color (card background)</li>
+                        <li>Timestamp</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="controls">
+            <div>
+                <button id="select-all" class="btn btn-primary" title="Select all cards">
+                    <i class="fas fa-check-square"></i> Select All
+                </button>
+                <button id="deselect-all" class="btn btn-primary" title="Deselect all cards">
+                    <i class="fas fa-square"></i> Deselect All
+                </button>
+                <button id="connect-data-source" class="btn btn-primary">
+                    <i class="fas fa-database"></i> Connect Data
+                </button>
+                <button id="update-data" class="btn btn-primary">
+                    <i class="fas fa-sync-alt"></i> <span id="update-text">Update</span>
+                </button>
+            </div>
+            <div class="filter-controls">
+                <select id="status-filter">
+                    <option value="all">All Statuses</option>
+                    <option value="approved">Approved</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="under-watch">Under Watch</option>
+                    <option value="new">New</option>
+                    <option value="ghost">Ghost</option>
+                    <option value="maintenance">Maintenance</option>
+                </select>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search" placeholder="Search presses...">
+                </div>
+            </div>
+        </div>
+
+        <div id="card-container" class="card-container">
+            <div class="welcome-message">
+                <i class="fas fa-table"></i>
+                <h3>No Data Loaded</h3>
+                <p>Connect to Google Sheets to begin</p>
+                <button id="get-started" class="btn btn-primary">
+                    <i class="fas fa-database"></i> Connect Data Source
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="press-script.js"></script>
+</body>
+</html>
