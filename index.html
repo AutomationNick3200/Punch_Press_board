@@ -33,16 +33,13 @@
     </header>
 
     <main>
-        <!-- Data Source Modal -->
         <div id="data-source-modal" class="modal">
             <div class="modal-content">
                 <span class="close" id="close-data-source-modal">&times;</span>
                 <h2><i class="fas fa-database"></i> Connect Data Source</h2>
-                
                 <div class="tab-buttons">
                     <button class="tab-btn active" data-tab="google-sheets-tab">Google Sheets</button>
                 </div>
-                
                 <div id="google-sheets-tab" class="tab-content active">
                     <div class="form-group">
                         <label>Google Sheet URL</label>
@@ -53,23 +50,20 @@
                         <i class="fas fa-link"></i> Connect Sheet
                     </button>
                 </div>
-                
                 <div class="requirements">
                     <h4>Data Format Requirements:</h4>
                     <ol>
                         <li>Status (approved/rejected/etc)</li>
-                        <li>Press Number (1-25, will show as title)</li>
-                        <li>Part Name (will show in details)</li>
+                        <li>Press Number (1-25)</li>
+                        <li>Part Name</li>
                         <li>Link (for Form button)</li>
-                        <li>Skip Column (ignored)</li>
-                        <li>Main Color (card background)</li>
                         <li>Timestamp</li>
+                        <li>Main Color (card background)</li>
                     </ol>
                 </div>
             </div>
         </div>
 
-        <!-- Main Content -->
         <div class="controls">
             <div>
                 <button id="select-all" class="btn btn-primary" title="Select all cards">
