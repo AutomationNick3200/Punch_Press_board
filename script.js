@@ -238,13 +238,12 @@ function processSheetData(rows) {
         if (!row.c) return null;
         
         // Column mapping
-        const status = (row.c[0]?.v || '').trim();        // Column A (0) - Status
-        const pressNum = row.c[1]?.v?.toString().match(/\d+/)?.[0] || (index + 1);  // Column B (1) - Press Number
-        const partNumber = row.c[2]?.v || '';             // Column C (2) - Part Name
-        const link = row.c[3]?.v || '';                   // Column D (3) - Link
-        const timestampValue = row.c[4]?.v;                // Column E (4) - Timestamp
-        const color = row.c[5]?.v || '#3498db';           // Column F (5) - Color
-
+        const status = (row.c[0]?.v || '').trim();
+        const pressNum = row.c[1]?.v?.toString().match(/\d+/)?.[0] || (index + 1);
+        const partNumber = row.c[2]?.v || '';
+        const color = row.c[5]?.v || '#3498db';
+        const timestampValue = row.c[4]?.v; // Column E (index 4) is timestamp
+        
         // Parse Google Sheets Date() format
         let timestamp = new Date(); // Default to current time
         
@@ -253,10 +252,9 @@ function processSheetData(rows) {
             if (typeof timestampValue === 'string' && timestampValue.startsWith('Date(')) {
                 const dateParts = timestampValue.match(/Date\((\d+),(\d+),(\d+),(\d+),(\d+),(\d+)\)/);
                 if (dateParts) {
-                    // Note: Google Sheets months are 0-based (January=0)
                     timestamp = new Date(
                         parseInt(dateParts[1]), // year
-                        parseInt(dateParts[2]), // month
+                        parseInt(dateParts[2]), // month (0-based)
                         parseInt(dateParts[3]), // day
                         parseInt(dateParts[4]), // hours
                         parseInt(dateParts[5]), // minutes
@@ -291,7 +289,7 @@ function processSheetData(rows) {
                     status: getStandardizedStatus(status)
                 }
             },
-            link,
+            link: row.c[3]?.v || '',
             design: { mainColor: color },
             notified: shouldNotify
         };
@@ -315,31 +313,6 @@ function formatDate(dateValue) {
         return date.toLocaleString('en-US', {
             month: 'short',
             day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true
-        });
-    } catch (e) {
-        console.error('Date formatting error:', e);
-        return 'Invalid date';
-    }
-}
-
-function formatDate(dateValue) {
-    try {
-        if (!dateValue) return 'No date';
-        
-        const date = dateValue instanceof Date ? dateValue : new Date(dateValue);
-        
-        if (isNaN(date.getTime())) {
-            console.warn('Invalid date value:', dateValue);
-            return 'Invalid date';
-        }
-        
-        return date.toLocaleString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric',
             hour: '2-digit',
             minute: '2-digit',
             hour12: true
@@ -457,7 +430,7 @@ function renderCards() {
         
         card.innerHTML = `
             <div class="card-header">
-                <div class="card-title"> ${escapeHtml(inspection.basicInfo.press)}</div>
+                <div class="card-title" style="font-size: 4rem; font-weight: bold;">${escapeHtml(inspection.basicInfo.press)}</div>
                 <div class="status-icon">
                     <i class="fas ${getStatusIcon(status)}"></i>
                     <span>${status.replace('-', ' ').toUpperCase()}</span>
