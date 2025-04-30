@@ -1,8 +1,8 @@
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
-    --approved-color: #1F7D53 !imporant;
-    --rejected-color: #c0392b;
+    --approved-color: #1e8449 !important;
+    --rejected-color: #e74c3c;
     --notify-color: #f39c12;
     --form-color: #9b59b6;
     --new-color: #9b59b6;
