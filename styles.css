@@ -1,7 +1,7 @@
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
-    --approved-color: #1e8449;
+    --approved-color: #1e8449 ;
     --rejected-color: #e74c3c;
     --notify-color: #f39c12;
     --form-color: #9b59b6;
@@ -214,7 +214,7 @@ header {
 }
 
 .card-detail span {
-    font-size: 1rem;
+    font-size: 1.8rem;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 
