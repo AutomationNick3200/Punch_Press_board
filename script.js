@@ -430,7 +430,7 @@ function renderCards() {
         
         card.innerHTML = `
             <div class="card-header">
-                <div class="card-title" style="font-size: 6.1rem; font-weight: bold;">${escapeHtml(inspection.basicInfo.press)}</div>
+                <div class="card-title" style="font-size: 6.2rem; font-weight: bold;">${escapeHtml(inspection.basicInfo.press)}</div>
                 <div class="status-icon">
                     <i class="fas ${getStatusIcon(status)}"></i>
                     <span>${status.replace('-', ' ').toUpperCase()}</span>
