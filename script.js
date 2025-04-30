@@ -439,7 +439,7 @@ function renderCards() {
             <div class="card-body">
                 <div class="card-detail">
                     <span><strong>#</strong> ${escapeHtml(inspection.basicInfo.partNumber)}</span>
-                    <span><strong>:</strong> ${formatDate(inspection.basicInfo.timestamp)}</span>
+                    <span><strong></strong> ${formatDate(inspection.basicInfo.timestamp)}</span>
                 </div>
             </div>
         `;
