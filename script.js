@@ -438,8 +438,8 @@ function renderCards() {
             </div>
             <div class="card-body">
                 <div class="card-detail">
-                    <span><strong>Part:</strong> ${escapeHtml(inspection.basicInfo.partNumber)}</span>
-                    <span><strong>Last Updated:</strong> ${formatDate(inspection.basicInfo.timestamp)}</span>
+                    <span><strong>#</strong> ${escapeHtml(inspection.basicInfo.partNumber)}</span>
+                    <span><strong>:</strong> ${formatDate(inspection.basicInfo.timestamp)}</span>
                 </div>
             </div>
         `;
