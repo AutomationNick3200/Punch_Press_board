@@ -419,3 +419,44 @@ header {
     flex-wrap: wrap;
     gap: 8px;
 }
+
+.card-title {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.status-icon {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.status-icon i {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-detail {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Status-specific shadow enhancements */
+.status-approved .card-title {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-rejected .card-title {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-under-watch .card-title {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-new .card-title {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-ghost .card-title {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.status-maintenance .card-title {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
