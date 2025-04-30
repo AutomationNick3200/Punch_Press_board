@@ -200,7 +200,7 @@ header {
 }
 
 .card-detail {
-    font-size: 1.8rem;
+    font-size: 2rem;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
