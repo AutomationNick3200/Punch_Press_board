@@ -22,7 +22,7 @@
 
 body {
     background-color: var(--light-bg);
-    color: #eee;
+    color: #333;
     line-height: 1.6;
 }
 
@@ -129,8 +129,7 @@ header {
 
 .welcome-message h3 {
     margin-bottom: 10px;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    color: var(--primary-color);
 }
 
 .card {
@@ -145,8 +144,6 @@ header {
     min-height: var(--card-height);
     display: flex;
     flex-direction: column;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
 .card.selected {
@@ -174,12 +171,11 @@ header {
 
 .card-title {
     font-weight: bold;
-    font-size: 4rem;
+    font-size: 4rem ;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 
 .status-icon {
@@ -188,13 +184,11 @@ header {
     gap: 5px;
     font-size: 0.9rem;
     color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .status-icon i {
     font-size: 1.1rem;
     color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .card-body {
@@ -210,12 +204,6 @@ header {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-}
-
-.card-detail span {
-    font-size: 1.8rem;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 
 .modal {
@@ -230,8 +218,7 @@ header {
 }
 
 .modal-content {
-    background-color: #3d3d3d;
-    color: white;
+    background-color: white;
     margin: 5% auto;
     padding: 25px;
     border-radius: 8px;
@@ -252,7 +239,7 @@ header {
 }
 
 .close:hover {
-    color: #ddd;
+    color: black;
 }
 
 .form-group {
@@ -263,22 +250,20 @@ header {
     display: block;
     margin-bottom: 8px;
     font-weight: 600;
-    color: white;
+    color: var(--primary-color);
 }
 
 .form-group input {
     width: 100%;
     padding: 12px;
-    border: 1px solid #555;
+    border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #444;
-    color: white;
 }
 
 .hint {
     font-size: 0.8rem;
-    color: #bbb;
+    color: #666;
     margin-top: 5px;
 }
 
@@ -286,8 +271,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 15px 20px;
-    background: #3d3d3d;
-    color: white;
+    background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin-bottom: 1px;
 }
@@ -312,31 +296,27 @@ header {
 .search-box i {
     position: absolute;
     left: 12px;
-    color: #bbb;
+    color: #999;
 }
 
 #search {
     padding: 10px 15px 10px 35px;
-    border: 1px solid #555;
+    border: 1px solid #ddd;
     border-radius: 6px;
     width: 200px;
-    background-color: #444;
-    color: white;
 }
 
 #status-filter {
     padding: 10px 15px;
-    border: 1px solid #555;
+    border: 1px solid #ddd;
     border-radius: 6px;
     font-size: 1rem;
-    background-color: #444;
-    color: white;
 }
 
 .tab-buttons {
     display: flex;
     margin-bottom: 20px;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #ddd;
 }
 
 .tab-btn {
@@ -345,7 +325,7 @@ header {
     border: none;
     cursor: pointer;
     font-weight: 600;
-    color: #bbb;
+    color: #666;
     border-bottom: 3px solid transparent;
     transition: all 0.2s;
 }
@@ -366,15 +346,14 @@ header {
 .requirements {
     margin-top: 25px;
     padding: 15px;
-    background: #3d3d3d;
-    color: white;
+    background: #f8f9fa;
     border-radius: 6px;
     border-left: 4px solid var(--secondary-color);
 }
 
 .requirements h4 {
     margin-bottom: 10px;
-    color: white;
+    color: var(--primary-color);
 }
 
 .requirements ol {
@@ -384,14 +363,6 @@ header {
 .requirements li {
     margin-bottom: 5px;
 }
-
-/* Status-specific card styles */
-.status-approved { background-color: var(--approved-color) !important; }
-.status-rejected { background-color: var(--rejected-color) !important; }
-.status-under-watch { background-color: var(--notify-color) !important; }
-.status-new { background-color: var(--new-color) !important; }
-.status-ghost { background-color: var(--ghost-color) !important; }
-.status-maintenance { background-color: var(--maintenance-color) !important; }
 
 @media (max-width: 768px) {
     header {
@@ -447,23 +418,4 @@ header {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-}
-
-/* Enhanced text shadows for better readability */
-.card-title {
-    text-shadow: 
-        2px 2px 4px rgba(0,0,0,0.8),
-        0 0 8px rgba(0,0,0,0.3);
-}
-
-.status-icon {
-    text-shadow: 
-        1px 1px 3px rgba(0,0,0,0.7),
-        0 0 5px rgba(0,0,0,0.2);
-}
-
-.card-detail span {
-    text-shadow: 
-        1px 1px 2px rgba(0,0,0,0.7),
-        0 0 4px rgba(0,0,0,0.2);
 }
