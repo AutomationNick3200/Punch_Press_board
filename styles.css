@@ -171,7 +171,7 @@ header {
 
 .card-title {
     font-weight: bold;
-    font-size: 4rem !important;
+    font-size: 4.2rem !important;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -200,7 +200,7 @@ header {
 }
 
 .card-detail {
-    font-size: 1rem;
+    font-size: 2.2rem;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
