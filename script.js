@@ -76,7 +76,7 @@ function startAutoUpdate() {
                 }, 2000);
             });
         }
-    }, 5 * 60 * 1000);
+    }, 1 * 60 * 1000);
 }
 
 function loadSavedDataSource() {
