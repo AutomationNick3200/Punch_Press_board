@@ -453,7 +453,7 @@ function renderCards() {
             clearTimeout(notificationTimeouts[inspection.id]);
             notificationTimeouts[inspection.id] = setTimeout(() => {
                 stopNotification(inspection.id);
-            }, 20 * 60 * 1000);
+            }, 20 * 60000 * 1000);
         }
         
         elements.cardContainer.appendChild(card);
