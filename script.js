@@ -336,20 +336,20 @@ function detectAndNotifyChanges() {
     });
 }
 
-//function notifyCards(cardIds) {
-   // cardIds.forEach(cardId => {
-      //  const inspection = inspections.find(i => i.id === cardId);
-      //  if (inspection) {
-        //    inspection.notified = true;
-        //    clearTimeout(notificationTimeouts[cardId]);
-       //     notificationTimeouts[cardId] = setTimeout(() => {
-      //          stopNotification(cardId);
-      //      }, 20 * 60 * 1000);
-     //   }
-  //  });
+function notifyCards(cardIds) {
+    cardIds.forEach(cardId => {
+        const inspection = inspections.find(i => i.id === cardId);
+        if (inspection) {
+            inspection.notified = true;
+            clearTimeout(notificationTimeouts[cardId]);
+           notificationTimeouts[cardId] = setTimeout(() => {
+                stopNotification(cardId);
+            }, 20 * 600000 * 1000);
+        }
+    });
     
- //   renderCards();
-//}
+    renderCards();
+}
 
 function notifySelectedCards() {
     notifyCards(Array.from(selectedCards));
