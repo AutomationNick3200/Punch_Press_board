@@ -152,14 +152,10 @@ header {
 }
 
 .card.notified {
-    animation: pulseOpacity 2.6s infinite alternate;
+    /* Remove animation (blinking) but keep the class for other uses */
+    animation: none;
+    opacity: 1; /* Force full visibility */
 }
-
-@keyframes pulseOpacity {
-    from { opacity: 0.1; }
-    to { opacity: 1; }
-}
-
 .card-header {
     display: flex;
     justify-content: space-between;
