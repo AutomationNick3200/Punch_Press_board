@@ -46,7 +46,7 @@ function init() {
 
 function checkTimestampForBlinking() {
     const now = new Date();
-    const oneHourInMs = 60 * 60 * 1000;
+    const oneHourInMs = Infinity;
 
     inspections.forEach(inspection => {
         const lastUpdated = new Date(inspection.basicInfo.timestamp);
@@ -344,7 +344,7 @@ function notifyCards(cardIds) {
             clearTimeout(notificationTimeouts[cardId]);
            notificationTimeouts[cardId] = setTimeout(() => {
                 stopNotification(cardId);
-            }, 20 * 60 * 1000);
+            }, 1000 * 60 * 60 * 1000);
         }
     });
     
@@ -453,7 +453,7 @@ function renderCards() {
             clearTimeout(notificationTimeouts[inspection.id]);
             notificationTimeouts[inspection.id] = setTimeout(() => {
                 stopNotification(inspection.id);
-            }, 20 * 60 * 1000);
+            }, 1000 * 60 * 60 * 1000);
         }
         
         elements.cardContainer.appendChild(card);
