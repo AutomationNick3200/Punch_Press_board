@@ -62,7 +62,7 @@ function startAutoUpdate() {
     
     if (currentDataSource) {
         updateData().then(() => {
-            checkTimestampForBlinking();
+           // checkTimestampForBlinking();
         });
     }
     
@@ -70,7 +70,7 @@ function startAutoUpdate() {
         if (currentDataSource) {
             elements.updateText.textContent = 'Updating...';
             updateData().then(() => {
-                checkTimestampForBlinking();
+               // checkTimestampForBlinking();
                 setTimeout(() => {
                     elements.updateText.textContent = 'Update';
                 }, 2000);
@@ -344,7 +344,7 @@ function notifyCards(cardIds) {
             clearTimeout(notificationTimeouts[cardId]);
            notificationTimeouts[cardId] = setTimeout(() => {
                 stopNotification(cardId);
-            }, 20 * 600000 * 1000);
+            }, 20 * 60 * 1000);
         }
     });
     
@@ -453,7 +453,7 @@ function renderCards() {
             clearTimeout(notificationTimeouts[inspection.id]);
             notificationTimeouts[inspection.id] = setTimeout(() => {
                 stopNotification(inspection.id);
-            }, 20 * 60000 * 1000);
+            }, 20 * 60 * 1000);
         }
         
         elements.cardContainer.appendChild(card);
